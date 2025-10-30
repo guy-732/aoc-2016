@@ -82,7 +82,7 @@ fn part1(input: &[(Turn, isize)]) -> usize {
         position = position.new_pos(direction, distance);
     }
 
-    position.0.abs() as usize + position.1.abs() as usize
+    position.0.unsigned_abs() + position.1.unsigned_abs()
 }
 
 #[aoc(day01, part2)]
@@ -102,7 +102,7 @@ fn part2(input: &[(Turn, isize)]) -> usize {
         for _ in 0..distance {
             position = position.new_pos(direction, 1);
             if !previous_pos.insert(position) {
-                return position.0.abs() as usize + position.1.abs() as usize;
+                return position.0.unsigned_abs() + position.1.unsigned_abs();
             }
         }
     }

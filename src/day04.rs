@@ -112,7 +112,7 @@ impl Room {
 
         order
             .into_iter()
-            .map(|e| e.1 as u8)
+            .map(|e| e.1)
             .zip(self.checksum)
             .all(|(computed, checksum)| computed == checksum)
     }
